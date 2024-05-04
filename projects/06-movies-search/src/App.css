@@ -1,0 +1,44 @@
+.movieApp-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.movieApp-header-form {
+  display: flex;
+  gap: 0.475rem;
+}
+
+.movieApp-moviesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.movieApp-movie {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #47474757;
+  box-shadow: 0 5px 5pxpx rgba(0, 0, 0, 0.1);
+}
+
+.movieApp-movie img {
+  max-width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.movieApp-movie:hover {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  transform: scale(1.1);
+  background-color: #5d5d5d57;
+
+}
