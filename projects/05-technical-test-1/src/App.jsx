@@ -1,42 +1,35 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { CAT_ENDPOINT_RANDOM_FACT, CAT_ENDPOINT_RANDOM_FACT_IMAGES } from './constants';
+import { getRandomFact } from './services/service';
+import { useCatImage } from './hooks/useCatImage';
 
 function App() {
 
   const [fact, setFact] = useState(null);
-  const [imageURL, setImageURL] = useState(null);
+  const { imageURL } = useCatImage({ fact });
+
+  const handleNewRandomFact = async () => {
+    const newRandomFact = await getRandomFact();
+    setFact(newRandomFact);
+  }
 
   //Obtiene un hecho aleatorio de gatos
   useEffect(() => {
-    fetch(CAT_ENDPOINT_RANDOM_FACT)
-      .then(response => response.json())
-      .then(data => setFact(data.fact))
+    getRandomFact().then(newFact => setFact(newFact));
     
   }, [])
-
-
-  //Obtiene imagen según las 3 primeras palabras del hecho
-  useEffect(() => {
-
-    if(!fact) return;
-
-    const firstWordFromFact = fact.split(' ', 3).join('');
-    const IMAGE_URL = CAT_ENDPOINT_RANDOM_FACT_IMAGES.replace('[REPLACE]', firstWordFromFact);
-      
-    fetch(IMAGE_URL)
-      .then(response => {
-        const { url } = response;
-        setImageURL(url);
-      })
-    
-  }, [fact])
-  
+ 
   return (
-    <main>
+    <main className="app">
       <h2>App de gatitos</h2>
       {fact && <p>{fact}</p>}
-      {imageURL && <img src={imageURL} alt={`Get image using three first word to the sentence: ${fact}`} />}
+      <button onClick={ () => handleNewRandomFact() }>Nuevo hecho random</button>
+      {imageURL && 
+        <img 
+          src={imageURL}
+          className='cat-image' 
+          alt={`Get image using three first word to the sentence: ${fact}`} />
+      }
       
     </main>
   )
