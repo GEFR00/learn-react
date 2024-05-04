@@ -1,0 +1,100 @@
+.createElement-container .createElement-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.createElement-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #525252;
+  border-radius: 0.25rem;
+  background-color: #383838;
+  color: #fff;
+  width: 100%;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  transition: 0.2s;
+
+}
+
+.btn:hover {
+  background: #eee;
+  color: #222;
+}
+
+.primary-btn {
+  background-color: #4252ce;
+  color: #fff;
+}
+
+.secondary-btn {
+  background-color: #ce4242;
+  color: #fff;
+}
+
+.primary-btn-blue {
+  background-color: #235ee8;
+  color: #fff;
+}
+
+
+.taskList-container {
+  margin: 2rem 0rem 2rem 0rem;
+}
+
+.taskList-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+}
+
+.taskList__content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.taskList-task {
+  background-color: #525252;
+  padding: 0.875rem;
+  border-radius: 8px;
+  color: #ffff;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.taskList-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.taskList-task--input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #525252;
+  border-radius: 0.25rem;
+  background-color: #383838;
+  color: #fff;
+}
+
+.taskList-list--completed {
+  list-style: none;
+  background-color: #525252;
+  border-radius: 8px;
+  color: #ffff;
+  width: 100%;
+  padding: 0.875rem;
+  font-size: 1rem;
+  margin: 1rem 1rem;
+}
+
