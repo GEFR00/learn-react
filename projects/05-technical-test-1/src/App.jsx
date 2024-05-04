@@ -1,24 +1,16 @@
-import { useEffect, useState } from 'react'
 import './App.css'
-import { getRandomFact } from './services/service';
 import { useCatImage } from './hooks/useCatImage';
+import { useCatFact } from './hooks/useCatFact';
 
 function App() {
 
-  const [fact, setFact] = useState(null);
+  const { fact, refreshFact } = useCatFact();
   const { imageURL } = useCatImage({ fact });
 
   const handleNewRandomFact = async () => {
-    const newRandomFact = await getRandomFact();
-    setFact(newRandomFact);
+    refreshFact();
   }
 
-  //Obtiene un hecho aleatorio de gatos
-  useEffect(() => {
-    getRandomFact().then(newFact => setFact(newFact));
-    
-  }, [])
- 
   return (
     <main className="app">
       <h2>App de gatitos</h2>
