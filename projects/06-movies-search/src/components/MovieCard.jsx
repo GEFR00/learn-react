@@ -13,6 +13,6 @@ export const MovieCard = ({ title, poster, year, id }) => {
 MovieCard.propTypes = {
     title: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
+    year: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
 };

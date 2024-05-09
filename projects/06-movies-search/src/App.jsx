@@ -7,20 +7,24 @@ function App() {
 
   const [movieSearch, setMovieSearch] = useState('')
   const [movies, setMovies] = useState([]);
+  const [lastSearch, setLastSearch] = useState('');
 
   const handleMovieSearch = (event) => {
     event.preventDefault();
 
-    if(!movieSearch.trim()) return;
+    if(!movieSearch.trim() || movieSearch === lastSearch) return;
 
     getMovieByName(movieSearch)
       .then(data => {
         setMovies(data);
-        console.log(movies)
+        console.log(data);
+        setLastSearch(movieSearch); 
       })
       .catch(error => console.log(error))
 
   }
+
+
 
   return (
     <>
@@ -42,6 +46,7 @@ function App() {
             movies.map(movie => (
               <MovieCard 
                 key={movie.imdbID}
+                id={movie.imdbID}
                 title={movie.Title}
                 poster={movie.Poster}
                 year={movie.Year}/>
